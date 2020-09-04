@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
+@import "reset";
+
+
+  $winnie: #8E6E95;
+
+  $bob: #39A59C;
+
+  $thomas: #344759;
+
+  $george: #E8741E;
+
+
+body {
+  line-height: 1;
+  background: white;
+  color: $bob;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 50px;
+}
+
+.home {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  .Aligner {
+    min-height: 85vh;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .Aligner-2 {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .Aligner-item {
+    max-width: 50%;
+  }
+  .menu ul li {
+    padding: 10px 15px;
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .version-num {
+    background: #E8E8E8;
+    border-radius: 4px;
+    padding: 7px 15px;
+    display: inline-block;
+    font-size: 12px;
+    margin: 10px 0 20px;
+  }
+  a {
+    text-decoration: none;
+    color: #30395C;
+    transition: all 0.3s ease-in-out;
+  }
+  a:hover {
+    color: #43D4D6;
+  }
+}
+.Page-wrapper{
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  .Page {
+    display: flex;
+    justify-content: space-around;
+    width: calc(100vw - 50px);
+    .column {
+      width: 100%;
+      margin-left: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .heading{
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border: 0.1px solid transparentize(black, .35);
+        width: 100%;
+      }
+    }
+  }
+  .winnie{
+    background-color: $winnie;
+  }
+  .bob{
+    background-color: $bob;
+  }
+  .thomas{
+    background-color: $thomas;
+  }
+  .george{
+    background-color: $george;
+  }
+  button{
+    margin: 3rem auto 0.5rem;
+    background-color: #fEfE95;
+    height: 3rem;
+    font-size: 2rem;
+    box-shadow: 0 4px 8px rgba(#8E6E95, 0.2);
+  }
+  .task-form{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    label{
+      width:100%;
+    }
+    input{
+      margin-left: 1rem;
+    }
+    button{
+      margin: 1rem auto;
+    }
+  }
+  .winnieColumn{
+    .task-form{
+      label{
+        display: flex;
+        justify-content: space-between;
+        span{
+        background-color: $winnie;
+        color: white;
+        display: block;
+        padding: .2rem 1rem;
+      }
+      }
+    }
+  }
+  .bobColumn{
+    .task-form{
+      label{
+        display: flex;
+        justify-content: space-between;
+        span{
+        background-color: $bob;
+        color: white;
+        display: block;
+        padding: .2rem 1rem;
+      }
+      }
+    }
+  }
+
+  .thomasColumn{
+    .task-form{
+      label{
+        display: flex;
+        justify-content: space-between;
+        span{
+        background-color: $thomas;
+        color: white;
+        display: block;
+        padding: .2rem 1rem;
+      }
+      }
+    }
+  }
+
+  .georgeColumn{
+    .task-form{
+      label{
+        display: flex;
+        justify-content: space-between;
+        span{
+        background-color: $george;
+        color: white;
+        display: block;
+        padding: .2rem 1rem;
+      }
+      }
+    }
+  }
+}
