@@ -1,10 +1,13 @@
+require("dotenv").config();
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8000;
 const mongoose = require('mongoose');
 const path = require('path');
+const cors = require("cors");
+const passport = require("./config/passport")();
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/fruits_api';
+const MONGODB_URI = process.env.MONGODB_URI;
 const db = mongoose.connection;
 
 mongoose.connect(MONGODB_URI, {
@@ -15,28 +18,36 @@ db.on('open', () => {
     console.log('Mongo is Connected');
 });
 /* Middleware */
+app.use(cors());
 app.use(express.json());
-app.use(express.static('public'))
+app.use(passport.initialize());
+// app.use(express.static('public'))
 
-/* Controller Goes Here Remove the test*/
-app.get('/test', (req, res)=>{
-	res.status(200).json({
-		website: 'My Website',
-		info: 'Not that much'
-	})
-})
 
-app.use('/api', require('./controllers/fruits.js'))
-/* Controller Ends here */
+// app.get('/test', (req, res)=>{
+// 	res.status(200).json({
+// 		website: 'Spoofy',
+// 		info: 'Music playlist app'
+// 	})
+// })
+
+//CONTROLLER START
+const userController = require("./controllers/users.js");
+
+app.use("/users", userController);
+app.use('/api/music', require('./controllers/music.js'))
+//CONTROLLER END
 //LISTENER
 
 /*Catch routes nested two levels deep */
-app.use('/:id/', express.static('public'))
+// app.use('/:id/', express.static('public'))
 /* Catch routes nested two levels deep */
 
-app.get('*', (req, res)=>{
-  res.sendFile(path.resolve(`${__dirname}/public/index.html`));
-})
+// app.get('*', (req, res)=>{
+//   res.sendFile(path.resolve(`${__dirname}/public/index.html`));
+// })
+
+//LISTENER
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 });
