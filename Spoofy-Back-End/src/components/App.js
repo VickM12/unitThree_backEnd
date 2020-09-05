@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 function App(props){
+  const API_URI = process.env.API_URI;
+  
   let request = require("request");
 
 let options = {
@@ -9,7 +11,7 @@ let options = {
   url: 'https://spotifystefan-skliarovv1.p.rapidapi.com/addTracksToPlaylist',
   headers: {
     'x-rapidapi-host': 'Spotifystefan-skliarovV1.p.rapidapi.com',
-    'x-rapidapi-key': '6e14ff9b91msh684d3a0f16a5096p1bf33ejsnaf6fd39bf555',
+    'x-rapidapi-key': API_URI,
     'content-type': 'application/x-www-form-urlencoded',
     useQueryString: true
   },
