@@ -7,6 +7,9 @@ const path = require('path');
 const cors = require("cors");
 const passport = require("./config/passport")();
 
+//Spotify Token
+const SpotifyToken= process.env.SpotifyToken
+//mongodb token
 const MONGODB_URI = process.env.MONGODB_URI;
 const db = mongoose.connection;
 
