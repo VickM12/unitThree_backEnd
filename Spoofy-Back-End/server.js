@@ -7,6 +7,9 @@ const path = require('path');
 const cors = require("cors");
 const passport = require("./config/passport")();
 
+//Spotify Token
+const SpotifyToken= process.env.SpotifyToken
+//mongodb token
 const MONGODB_URI = process.env.MONGODB_URI;
 const db = mongoose.connection;
 
@@ -21,6 +24,10 @@ db.on('open', () => {
 app.use(cors());
 app.use(express.json());
 app.use(passport.initialize());
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 // app.use(express.static('public'))
 
 
