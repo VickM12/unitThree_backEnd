@@ -24,6 +24,10 @@ db.on('open', () => {
 app.use(cors());
 app.use(express.json());
 app.use(passport.initialize());
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 // app.use(express.static('public'))
 
 
