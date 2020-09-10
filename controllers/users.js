@@ -5,7 +5,6 @@ const bcrypt = require("bcrypt");
 const passport = require("../config/passport");
 const config = require("../config/config");
 const User = require("../models/user");
-
 // USER CREATE ROUTE
 router.post("/signup", (req, res) => {
   console.log(req.body);
@@ -14,7 +13,6 @@ router.post("/signup", (req, res) => {
       req.body.password,
       bcrypt.genSaltSync(10)
     );
-
     User.findOne({ email: req.body.email }, (user) => {
       console.log("========findOne=======", user);
       if (!user) {
@@ -48,7 +46,6 @@ router.post("/signup", (req, res) => {
     res.sendStatus(401);
   }
 });
-
 // USER SIGN-IN ROUTE
 router.post("/login", (req, res) => {
   if (req.body.email && req.body.password) {
@@ -82,5 +79,4 @@ router.post("/login", (req, res) => {
     res.sendStatus(401);
   }
 });
-
 module.exports = router;
