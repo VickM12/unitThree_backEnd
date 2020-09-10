@@ -65,6 +65,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "react-router-dom": "^5.2.0",
-    "react-spotify-api": "^3.0.0"
+    "react-spotify-api": "^3.0.0",
+    "cors": "^2.8.5"
   }
 }
