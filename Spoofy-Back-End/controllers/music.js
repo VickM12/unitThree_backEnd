@@ -11,8 +11,11 @@ res.setHeader("Access-Control-Allow-Headers", "content-type");
 res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
     Music.find({}, (error, allMusic) => {
         error ?
+        
         res.status(404).json(error):
+
         res.status(200).json(allMusic)
+        console.log(error)
     });
 });
 
